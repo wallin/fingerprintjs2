@@ -401,6 +401,17 @@ describe('Fingerprint2', () => {
             done();
           });
         });
+        it("works for Free BSD", (done) => {
+          Object.defineProperty(navigator, "userAgent", {
+            value: "Mozilla/5.0 (X11; FreeBSD amd64; rv:72.0) Gecko/20100101 Firefox/72.0",
+            configurable: true
+          });
+          Object.defineProperty(navigator, "platform", { value: "FreeBSD amd64", configurable: true });
+          Fingerprint2.get((components) => {
+            expect(getComponent(components, "hasLiedOs")).toEqual(false)
+            done();
+          });
+        });
       });
 
       describe("hasLiedLanguages", () => {

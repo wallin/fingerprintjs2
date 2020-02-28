@@ -1169,7 +1169,7 @@
     // We compare platform with the OS extracted from the UA
     if (platform.indexOf('win') >= 0 && os !== 'Windows' && os !== 'Windows Phone') {
       return true
-    } else if ((platform.indexOf('linux') >= 0 || platform.indexOf('android') >= 0 || platform.indexOf('pike') >= 0) && os !== 'Linux' && os !== 'Android') {
+    } else if ((platform.indexOf('linux') >= 0 || platform.indexOf('android') >= 0 || platform.indexOf('pike') >= 0|| platform.indexOf('bsd') >= 0) && os !== 'Linux' && os !== 'Android') {
       return true
     } else if ((platform.indexOf('mac') >= 0 || platform.indexOf('ipad') >= 0 || platform.indexOf('ipod') >= 0 || platform.indexOf('iphone') >= 0) && os !== 'Mac' && os !== 'iOS') {
       return true
@@ -1180,6 +1180,7 @@
     } else {
       var platformIsOther = platform.indexOf('win') < 0 &&
         platform.indexOf('linux') < 0 &&
+        platform.indexOf('bsd') < 0 &&
         platform.indexOf('mac') < 0 &&
         platform.indexOf('iphone') < 0 &&
         platform.indexOf('ipad') < 0 &&
